@@ -1,3 +1,16 @@
+package base;
+
 public class Administrativo extends Funcionario {
-    int qtdVendida;
+    private int qtdVendida;
+
+
+
+    public int getQtdVendida() {
+        return qtdVendida;
+    }
+
+    public void setQtdVendida(int qtdVendida) {
+        this.qtdVendida = qtdVendida;
+    }
 }
+

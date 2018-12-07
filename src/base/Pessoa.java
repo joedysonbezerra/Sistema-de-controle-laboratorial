@@ -1,6 +1,8 @@
+package base;
+
 public abstract class Pessoa {
-    private String cpf;
-    private String nome;
-    private int idade;
-    private String sexo;
+    protected String cpf;
+    protected String nome;
+    protected int idade;
+    protected String sexo;
 }
