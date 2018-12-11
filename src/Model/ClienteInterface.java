@@ -13,5 +13,5 @@ public interface ClienteInterface {
     Cliente buscaCliente(Pessoa pCliente) throws SearchException,NullObjectException;
     void excluiCliente(Pessoa pCliente) throws RemoveException,NullObjectException;
     ArrayList<Pessoa> listarClientes();
-    boolean verificaCliente(Pessoa pCliente);
+    boolean verificaCliente(Pessoa pCliente) ;
 }

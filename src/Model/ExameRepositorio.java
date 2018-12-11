@@ -25,13 +25,14 @@ public class ExameRepositorio implements ExameInterface {
     @Override
     public Exame buscaExame(Exame pExame) throws SearchException, NullObjectException {
         if(verificaExame(pExame)) throw new NullObjectException("BD: Exame Invalido");
-            int i = listaDeExames.indexOf(pExame);
 
-            if(i >= 0) {
-                return (Exame) listaDeExames.get(i);
-            }else {
-                throw new SearchException("BD: Exame não foi encontrado");
-            }
+        int i = listaDeExames.indexOf(pExame);
+
+        if(i >= 0) {
+            return (Exame) listaDeExames.get(i);
+        }else {
+            throw new SearchException("BD: Exame não foi encontrado");
+        }
     }
 
     @Override
