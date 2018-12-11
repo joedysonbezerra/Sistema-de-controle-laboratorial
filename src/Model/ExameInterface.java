@@ -1,12 +1,17 @@
 package model;
 import base.Exame;
+import util.InsertException;
+import util.NullObjectException;
+import util.RemoveException;
+import util.SearchException;
 
 import java.util.ArrayList;
 
 public interface ExameInterface {
 
-    boolean insere(Exame pExame);
-    Exame busca(int cod);
+    void inserirExame(Exame pCliente) throws InsertException,NullObjectException;
+    Exame buscaExame(Exame pCliente) throws SearchException,NullObjectException;
+    void excluiExame(Exame pCliente) throws RemoveException,NullObjectException;
     ArrayList<Exame> listarExame();
-    boolean exclui(int cod);
+    boolean verificaExame(Exame pCliente);
 }
