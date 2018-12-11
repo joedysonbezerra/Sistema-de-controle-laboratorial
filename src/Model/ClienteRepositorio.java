@@ -29,6 +29,7 @@ public class ClienteRepositorio implements ClienteInterface {
     @Override
     public Cliente buscaCliente(Pessoa pCliente) throws SearchException,NullObjectException {
         if(pCliente instanceof Cliente) {
+            if(verificaCliente(pCliente)) throw new NullObjectException("BD: Cliente Invalido");
             int i = listaDeClientes.indexOf(pCliente);
 
             if(i >= 0) {
@@ -45,6 +46,7 @@ public class ClienteRepositorio implements ClienteInterface {
     public void excluiCliente(Pessoa pCliente) throws RemoveException,NullObjectException {
         if(pCliente instanceof Cliente) {
             try {
+                if(verificaCliente(pCliente)) throw new NullObjectException("BD: Cliente Invalido");
                 this.listaDeClientes.remove(pCliente);
             }catch (Exception e){
                 throw new RemoveException("BD: Cliente não foi removido");

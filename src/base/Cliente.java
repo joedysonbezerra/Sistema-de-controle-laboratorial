@@ -16,6 +16,7 @@ public class Cliente extends Pessoa {
         this.local = new Endereco(estado,cidade,bairro,rua);
         this.plsaude = new PlanoDeSaude(cod,pPlanodesaude);
     }
+
     public boolean equals(Object o) {
         boolean valor = false;
 
