@@ -1,18 +1,16 @@
 package base;
 
 public class Endereco {
-    private int cod;
     private String estado;
     private String cidade;
     private String bairro;
     private String rua;
 
-    public int getCod() {
-        return cod;
-    }
-
-    public void setCod(int cod) {
-        this.cod = cod;
+    public Endereco(String estado, String cidade, String bairro, String rua) {
+        this.estado = estado;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.rua = rua;
     }
 
     public String getEstado() {
