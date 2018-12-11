@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public interface ExameInterface {
 
-    void inserirExame(Exame pCliente) throws InsertException,NullObjectException;
-    Exame buscaExame(Exame pCliente) throws SearchException,NullObjectException;
-    void excluiExame(Exame pCliente) throws RemoveException,NullObjectException;
+    void inserirExame(Exame pExame) throws InsertException,NullObjectException;
+    Exame buscaExame(Exame pExame) throws SearchException,NullObjectException;
+    void excluiExame(Exame pExame) throws RemoveException,NullObjectException;
     ArrayList<Exame> listarExame();
-    boolean verificaExame(Exame pCliente);
+    boolean verificaExame(Exame pExame);
 }
