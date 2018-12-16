@@ -9,7 +9,11 @@ public class Medico {
         this.nome = nome;
     }
 
-    public String getCrm() {
+    public Medico(String crm) {
+		super();
+	}
+
+	public String getCrm() {
         return crm;
     }
 

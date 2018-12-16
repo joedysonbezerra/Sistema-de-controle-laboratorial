@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 import base.Medico;
 import util.InsertException;
