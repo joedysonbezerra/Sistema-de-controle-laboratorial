@@ -1,21 +1,21 @@
 package view;
-import base.Cliente;
+import base.Exame;
 import controller.Fachada;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class BuscarClienteView extends JFrame {
-	JLabel cpf = new JLabel("CPF: ");
-	JTextField campoCpf = new JTextField(30);
+public class BuscarExameView extends JFrame {
+	JLabel cod = new JLabel("Cod: ");
+	JTextField campoCod = new JTextField(30);
 	JButton enviar = new JButton("Enviar");
 
-	public BuscarClienteView(Fachada fachada){
+	public BuscarExameView(Fachada fachada){
 
 		formaLayout();
 
-		this.setTitle("Buscar Cliente");
+		this.setTitle("Buscar Exame");
 		this.setSize(350, 130);
 		this.setVisible(true);
 		setLocationRelativeTo(null);
@@ -23,8 +23,8 @@ public class BuscarClienteView extends JFrame {
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Cliente resultado = fachada.cliente.procuraCliente(campoCpf.getText());
-					System.out.println(resultado.getNome() + "\n" + resultado.getSexo()+ "\n" + resultado.getIdade());
+					Exame resultado = fachada.exame.procuraExame(Integer.valueOf(campoCod.getText()));
+					System.out.println(resultado.getNome() + "\n" + resultado.getPreco());
 
 				} catch (Exception error) {
 					System.out.println(error.getMessage());
@@ -40,8 +40,8 @@ public class BuscarClienteView extends JFrame {
 		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
 		center.setLayout(new FlowLayout(FlowLayout.CENTER,3,3));
 
-		pane.add(cpf);
-		pane.add(campoCpf);
+		pane.add(cod);
+		pane.add(campoCod);
 		center.add(pane);
 		merge.setLayout(new BoxLayout(merge, BoxLayout.Y_AXIS));
 		merge.add(center);

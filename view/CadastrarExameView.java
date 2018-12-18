@@ -1,35 +1,43 @@
 package view;
-import base.Cliente;
+
+
 import controller.Fachada;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
-public class BuscarClienteView extends JFrame {
-	JLabel cpf = new JLabel("CPF: ");
-	JTextField campoCpf = new JTextField(30);
+public class CadastrarExameView extends JFrame {
+
+	JLabel nome = new JLabel("Nome: ");
+	JLabel preco = new JLabel("Preço: ");
+
+	JTextField campoNome = new JTextField(30);
+	JTextField campoPreco = new JTextField(30);
+
+
 	JButton enviar = new JButton("Enviar");
 
-	public BuscarClienteView(Fachada fachada){
+	public CadastrarExameView(Fachada fachada){
 
 		formaLayout();
 
-		this.setTitle("Buscar Cliente");
-		this.setSize(350, 130);
+		this.setTitle("Cadastrar Exame");
+		this.setSize(700, 450);
 		this.setVisible(true);
 		setLocationRelativeTo(null);
+
 
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Cliente resultado = fachada.cliente.procuraCliente(campoCpf.getText());
-					System.out.println(resultado.getNome() + "\n" + resultado.getSexo()+ "\n" + resultado.getIdade());
-
+					fachada.exame.cadastrarExame(campoNome.getText(),
+					Float.valueOf(campoPreco.getText()));
+					System.out.println("Cadastrado com Sucesso o exame" + campoNome.getText());
 				} catch (Exception error) {
 					System.out.println(error.getMessage());
 				}
-
 			}
 		});
 	}
@@ -38,10 +46,13 @@ public class BuscarClienteView extends JFrame {
 		JPanel center = new JPanel();
 		JPanel merge = new JPanel();
 		pane.setLayout(new BoxLayout(pane, BoxLayout.Y_AXIS));
-		center.setLayout(new FlowLayout(FlowLayout.CENTER,3,3));
+		center.setLayout(new FlowLayout(FlowLayout.CENTER,10,10));
 
-		pane.add(cpf);
-		pane.add(campoCpf);
+		pane.add(nome);
+		pane.add(campoNome);
+		pane.add(preco);
+		pane.add(campoPreco);
+
 		center.add(pane);
 		merge.setLayout(new BoxLayout(merge, BoxLayout.Y_AXIS));
 		merge.add(center);

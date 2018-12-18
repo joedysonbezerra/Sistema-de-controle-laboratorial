@@ -1,6 +1,5 @@
 package view;
 
-import base.Cliente;
 import controller.Fachada;
 
 import javax.swing.*;
@@ -32,7 +31,7 @@ public class ExcluirClienteView extends JFrame {
 		enviar.setForeground(Color.WHITE);
 
 		this.add(merge);
-		this.setTitle("Cadastrar Cliente");
+		this.setTitle("Excluir Cliente");
 		this.setSize(350, 130);
 		this.setVisible(true);
 		setLocationRelativeTo(null);
