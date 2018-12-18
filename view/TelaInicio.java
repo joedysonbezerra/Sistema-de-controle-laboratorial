@@ -1,5 +1,7 @@
 package view;
 
+import controller.Fachada;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import java.awt.Container;
@@ -18,9 +20,9 @@ public class TelaInicio extends JFrame {
 	JButton sair = new JButton("Sair");
 
 
-	public TelaInicio() {
+	public TelaInicio(Fachada fachada) {
 		Container pane = this.getContentPane();
-		pane.setLayout(new GridLayout(2,3));
+		pane.setLayout(new GridLayout(2,3,5,5));
 		pane.add(cliente);
 		pane.add(exame);
 		pane.add(medico);
@@ -30,25 +32,25 @@ public class TelaInicio extends JFrame {
 
 		cliente.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ClienteView novaClienteView = new ClienteView();
+				ClienteView novaClienteView = new ClienteView(fachada);
 			}
 		});
 
 		exame.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ExameView novaExameView = new ExameView();
+				ExameView novaExameView = new ExameView(fachada);
 			}
 		});
 
 		medico.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				MedicoView novaMedicoView = new MedicoView();
+				MedicoView novaMedicoView = new MedicoView(fachada);
 			}
 		});
 
 		venda.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VendaView novaVendaView = new VendaView();
+				VendaView novaVendaView = new VendaView(fachada);
 			}
 		});
 
@@ -65,6 +67,7 @@ public class TelaInicio extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(700, 300);
 		this.setVisible(true);
+		setLocationRelativeTo(null);
 	}
 
 	void inicializarCores(){

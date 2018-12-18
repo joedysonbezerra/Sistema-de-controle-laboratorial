@@ -1,7 +1,10 @@
+import controller.Fachada;
 import view.TelaInicio;
 
 public class Main {
    public static void main(String[] args) {
-		TelaInicio inicio = new TelaInicio();
+		Fachada fachada = new Fachada();
+		TelaInicio inicio = new TelaInicio(fachada);
+
    }
 }
