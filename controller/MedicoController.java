@@ -35,7 +35,7 @@ public class MedicoController {
 			throw new NullPointerException("Por favor, informe todos os dados");
 		}
 	}
-	public void removeCliente(String crm) throws SearchException, NullPointerException{
+	public void removeMedico(String crm) throws SearchException, NullPointerException{
 		try {
 
 			Medico medico = new Medico(crm);
