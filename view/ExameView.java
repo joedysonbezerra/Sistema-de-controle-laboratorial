@@ -3,9 +3,13 @@ package view;
 import controller.Fachada;
 
 import javax.swing.*;
+
+import base.Exame;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class ExameView extends JFrame {
 	JButton cadastrar = new JButton("Cadastrar");
@@ -37,6 +41,12 @@ public class ExameView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int i = 0;
+				ArrayList<Exame> exames = fachada.exame.ListarTodos();
+				while(!exames.isEmpty()){
+					System.out.println(exames.get(i).getNome());
+					i++;
+			  }
 			}
 		});
 

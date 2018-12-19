@@ -3,9 +3,13 @@ package view;
 import controller.Fachada;
 
 import javax.swing.*;
+
+import base.Cliente;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class ClienteView extends JFrame {
@@ -38,6 +42,12 @@ public class ClienteView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				int i = 0;
+				ArrayList<Cliente> clientes = fachada.cliente.ListarTodos();
+				while(!clientes.isEmpty()){
+					System.out.println(clientes.get(i).getNome());
+					i++;
+			  }
 			}
 		});
 
