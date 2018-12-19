@@ -10,7 +10,7 @@ public class Medico {
     }
 
     public Medico(String crm) {
-		super();
+		this.crm = crm;
 	}
 
 	public String getCrm() {
@@ -32,9 +32,9 @@ public class Medico {
     public boolean equals(Object o) {
         boolean valor = false;
 
-        if(this.crm.equals(((Medico) o).getCrm())) {
-            valor = true;
-        }
+		 if(this.crm.equals(((Medico) o).getCrm())) {
+			 valor = true;
+		 }
 
         return valor;
     }

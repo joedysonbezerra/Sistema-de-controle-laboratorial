@@ -28,7 +28,8 @@ public class MedicoController {
 	public Medico procurarMedico(String crm) throws SearchException, NullPointerException{
 		try {
 			Medico medico = new Medico(crm);
-			return (Medico) medico;
+			medico = listaMedicos.buscaMedico(medico);
+			return medico;
 		}catch (SearchException e) {
 			throw new SearchException("O medico nao foi encontrado");
 		}catch (NullPointerException e) {
