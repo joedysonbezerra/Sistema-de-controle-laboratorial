@@ -23,7 +23,7 @@ public class BuscarAdministrativoView extends JFrame {
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Administrativo resultado = fachada.administrativo.procuraFuncionarioAdministrativo(campoCpf.getText());
+					Administrativo resultado = fachada.funcionario.procuraFuncionarioAdministrativo(campoCpf.getText());
 					System.out.println(resultado.getNome() + "\n" + resultado.getSexo()+ "\n" + resultado.getIdade());
 
 				} catch (Exception error) {

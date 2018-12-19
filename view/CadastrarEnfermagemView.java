@@ -39,9 +39,9 @@ public class CadastrarEnfermagemView extends JFrame {
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					fachada.enfermagem.cadastrarFuncionarioEnfermagem(campoCpf.getText(),campoNome.getText(),
+					fachada.funcionario.cadastrarFuncionarioEnfermagem(campoCpf.getText(),campoNome.getText(),
 					Integer.valueOf(campoIdade.getText()),campoSexo.getText(),
-					campoDepartamento.getText(),campoExamesColetados.getText());
+					campoDepartamento.getText(),Integer.valueOf(campoExamesColetados.getText()));
 					System.out.println("Cadastrado com Sucesso o funcionario" + campoNome.getText());
 				} catch (Exception error) {
 					System.out.println(error.getMessage());

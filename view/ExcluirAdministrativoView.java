@@ -39,7 +39,7 @@ public class ExcluirAdministrativoView extends JFrame {
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					fachada.administrativo.removeFuncionarioAdministrativo(campoCpf.getText());
+					fachada.funcionario.removeFuncionarioAdministrativo(campoCpf.getText());
 					System.out.println("Excluido com Sucesso");
 
 				} catch (Exception error) {

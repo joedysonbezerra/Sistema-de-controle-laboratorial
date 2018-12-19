@@ -23,7 +23,7 @@ public class BuscarEnfermagemView extends JFrame {
 		enviar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					Enfermagem resultado = fachada.enfermagem.procuraFuncionarioEnfermagem(campoCpf.getText());
+					Enfermagem resultado = fachada.funcionario.procuraFuncionarioEnfermagem(campoCpf.getText());
 					System.out.println(resultado.getNome() + "\n" + resultado.getSexo()+ "\n" + resultado.getIdade());
 
 				} catch (Exception error) {
