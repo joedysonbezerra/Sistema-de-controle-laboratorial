@@ -12,6 +12,10 @@ public class Enfermagem extends Funcionario {
         this.examesColetados = examesColetados;
     }
 
+    public double salario(){
+		 return 1020+(examesColetados*0.15);
+	 }
+
     public int getExamesColetados() {
         return examesColetados;
     }

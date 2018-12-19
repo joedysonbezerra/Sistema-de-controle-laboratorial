@@ -42,7 +42,7 @@ public class AdministrativoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Administrativo> administrativos = fachada.funcionario.ListarTodosAdministrativo();
 				for(int i = 0; i < administrativos.size(); i++){
-					System.out.println(administrativos.get(i).getNome());
+					System.out.println(administrativos.get(i).getNome() + " " + administrativos.get(i).salario());
 				}
 			}
 		});

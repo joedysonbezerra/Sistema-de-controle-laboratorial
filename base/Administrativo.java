@@ -12,6 +12,10 @@ public class Administrativo extends Funcionario {
         this.qtdVendida = qtdVendida;
     }
 
+    public double salario(){
+		 return 960+(qtdVendida*0.10);
+	 }
+
     public int getQtdVendida() {
         return qtdVendida;
     }

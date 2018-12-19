@@ -42,7 +42,7 @@ public class EnfermagemView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				ArrayList<Enfermagem> enfermeiros = fachada.funcionario.ListarTodosEnfermagem();
 				for(int i = 0; i < enfermeiros.size(); i++){
-					System.out.println(enfermeiros.get(i).getNome());
+					System.out.println(enfermeiros.get(i).getNome()+" " + enfermeiros.get(i).salario() );
 				}
 			}
 		});

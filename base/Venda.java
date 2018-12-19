@@ -3,13 +3,13 @@ package base;
 import java.util.Date;
 
 public class Venda {
-	int cod;
-	Date Atendimento;
-	Cliente cliente;
-	Medico medico;
-	Exame exame;
-	Administrativo administrativo;
-	Enfermagem enfermagem;
+	private int cod;
+	private Date atendimento;
+	public Cliente cliente;
+	public Medico medico;
+	public Exame exame;
+	public Administrativo administrativo;
+	public Enfermagem enfermagem;
 	private static int sequence = 0;
 
 	public Venda(int pCod){
@@ -18,13 +18,17 @@ public class Venda {
 
 	public Venda(Cliente pCliente, Medico pMedico, Administrativo pAdministrativo, Enfermagem pEnfermagem, Exame pExame) {
 		this.cod = sequence;
-		this.Atendimento = new Date();
+		this.atendimento = new Date();
 		this.cliente = pCliente;
 		this.medico = pMedico;
 		this.administrativo = pAdministrativo;
 		this.enfermagem = pEnfermagem;
 		this.exame = pExame;
 		sequence++;
+	}
+
+	public Date getAtendimento() {
+		return atendimento;
 	}
 
 	public int getCod() {
