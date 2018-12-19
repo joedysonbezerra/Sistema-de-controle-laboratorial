@@ -47,6 +47,11 @@ public class TelaInicio extends JFrame {
 				MedicoView novaMedicoView = new MedicoView(fachada);
 			}
 		});
+		funcionario.addActionListener( new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				tipoFuncionarioView novafuncionarioView = new tipoFuncionarioView(fachada);
+			}
+		});
 
 		venda.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
