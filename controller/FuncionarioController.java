@@ -7,6 +7,8 @@ import util.exception.InsertException;
 import util.exception.RemoveException;
 import util.exception.SearchException;
 
+import java.util.ArrayList;
+
 public class FuncionarioController {
 	FuncionarioInterface listaFuncionarios = new FuncionarioRepositorio();
 
@@ -50,6 +52,9 @@ public class FuncionarioController {
 			throw new NullPointerException("Por favor, informe todos os dados.");
 		}
 	}
+	public ArrayList<Administrativo> ListarTodosAdministrativo(){
+		return listaFuncionarios.listarFuncionariosAdministrativo();
+	}
 
 	public void cadastrarFuncionarioEnfermagem(String cpf, String nome, int idade, String sexo, String nomeDepartamento,int examesColetados) throws InsertException, NullPointerException{
 		try {
@@ -87,5 +92,8 @@ public class FuncionarioController {
 		}catch (NullPointerException e) {
 			throw new NullPointerException("Por favor, informe todos os dados.");
 		}
+	}
+	public ArrayList<Enfermagem> ListarTodosEnfermagem(){
+		return listaFuncionarios.listarFuncionariosEnfermagem();
 	}
 }

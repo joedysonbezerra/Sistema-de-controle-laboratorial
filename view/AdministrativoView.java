@@ -1,11 +1,13 @@
 package view;
 
+import base.Administrativo;
 import controller.Fachada;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class AdministrativoView extends JFrame {
@@ -38,6 +40,10 @@ public class AdministrativoView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Administrativo> administrativos = fachada.funcionario.ListarTodosAdministrativo();
+				for(int i = 0; i < administrativos.size(); i++){
+					System.out.println(administrativos.get(i).getNome());
+				}
 			}
 		});
 

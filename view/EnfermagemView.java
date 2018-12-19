@@ -1,11 +1,13 @@
 package view;
 
+import base.Enfermagem;
 import controller.Fachada;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class EnfermagemView extends JFrame {
@@ -38,6 +40,10 @@ public class EnfermagemView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Enfermagem> enfermeiros = fachada.funcionario.ListarTodosEnfermagem();
+				for(int i = 0; i < enfermeiros.size(); i++){
+					System.out.println(enfermeiros.get(i).getNome());
+				}
 			}
 		});
 

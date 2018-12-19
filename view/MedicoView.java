@@ -1,11 +1,13 @@
 package view;
 
+import base.Medico;
 import controller.Fachada;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class MedicoView extends JFrame {
@@ -38,6 +40,10 @@ public class MedicoView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ArrayList<Medico> medicos = fachada.medico.ListarTodos();
+				for(int i = 0; i < medicos.size(); i++){
+					System.out.println(medicos.get(i).getNome());
+				}
 			}
 		});
 
