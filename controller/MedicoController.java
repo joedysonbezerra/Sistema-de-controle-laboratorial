@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import base.Medico;
-import model.MedicoInterface;
+import model.interfaces.MedicoInterface;
 import model.MedicoRepositorio;
 import util.exception.InsertException;
 import util.exception.RemoveException;

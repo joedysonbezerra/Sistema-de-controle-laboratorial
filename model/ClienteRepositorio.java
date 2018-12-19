@@ -1,6 +1,7 @@
 package model;
 
 import base.Cliente;
+import model.interfaces.ClienteInterface;
 import util.exception.InsertException;
 import util.exception.SearchException;
 import util.exception.RemoveException;

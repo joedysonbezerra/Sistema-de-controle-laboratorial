@@ -1,6 +1,7 @@
 package model;
 
 import base.Medico;
+import model.interfaces.MedicoInterface;
 import util.exception.InsertException;
 import util.exception.RemoveException;
 import util.exception.SearchException;

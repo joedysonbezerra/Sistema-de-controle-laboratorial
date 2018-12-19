@@ -1,7 +1,7 @@
 package controller;
 
 
-import model.ClienteInterface;
+import model.interfaces.ClienteInterface;
 import model.ClienteRepositorio;
 
 import java.util.ArrayList;

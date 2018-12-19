@@ -1,7 +1,7 @@
 package controller;
 import base.Administrativo;
 import base.Enfermagem;
-import model.FuncionarioInterface;
+import model.interfaces.FuncionarioInterface;
 import model.FuncionarioRepositorio;
 import util.exception.InsertException;
 import util.exception.RemoveException;

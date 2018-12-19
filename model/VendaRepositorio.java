@@ -1,6 +1,7 @@
 package model;
 
 import base.Venda;
+import model.interfaces.VendaInterface;
 import util.exception.InsertException;
 import util.exception.RemoveException;
 import util.exception.SearchException;

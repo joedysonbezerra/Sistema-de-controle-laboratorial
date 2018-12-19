@@ -3,7 +3,7 @@ package controller;
 import java.util.ArrayList;
 
 import base.Exame;
-import model.ExameInterface;
+import model.interfaces.ExameInterface;
 import model.ExameRepositorio;
 import util.exception.InsertException;
 import util.exception.RemoveException;

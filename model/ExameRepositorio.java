@@ -1,6 +1,7 @@
 package model;
 
 import base.Exame;
+import model.interfaces.ExameInterface;
 import util.exception.InsertException;
 import util.exception.RemoveException;
 import util.exception.SearchException;

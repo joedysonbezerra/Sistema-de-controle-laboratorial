@@ -1,4 +1,4 @@
-package model;
+package model.interfaces;
 import base.Exame;
 import util.exception.InsertException;
 import util.exception.RemoveException;

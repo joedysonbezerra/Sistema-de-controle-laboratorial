@@ -1,7 +1,7 @@
 package controller;
 
 import base.Venda;
-import model.VendaInterface;
+import model.interfaces.VendaInterface;
 import model.VendaRepositorio;
 import util.exception.InsertException;
 import util.exception.RemoveException;
