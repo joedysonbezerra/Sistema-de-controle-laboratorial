@@ -27,6 +27,7 @@ public class BuscarMedicoView extends JFrame {
 					System.out.println(resultado.getNome());
 
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 

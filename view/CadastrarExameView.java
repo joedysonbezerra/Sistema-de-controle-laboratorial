@@ -35,8 +35,10 @@ public class CadastrarExameView extends JFrame {
 				try {
 					fachada.exame.cadastrarExame(campoNome.getText(),
 					Float.valueOf(campoPreco.getText()));
+					JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso o Exame", "Cadastrado", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("Cadastrado com Sucesso o exame" + campoNome.getText());
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 			}

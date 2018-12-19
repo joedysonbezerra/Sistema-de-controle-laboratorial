@@ -33,8 +33,10 @@ public class CadastrarMedicoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					fachada.medico.cadastrarMedico(campoCrm.getText(),campoNome.getText());
+					JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso o Medico", "Cadastrado", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("Cadastrado com Sucesso o medico " + campoNome.getText());
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 			}

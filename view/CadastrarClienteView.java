@@ -52,8 +52,10 @@ public class CadastrarClienteView extends JFrame {
 					campoEstado.getText(),campoCidade.getText(),campoBairro.getText(),
 					campoRua.getText(),Integer.valueOf(campoCod.getText()),
 					campoPlanodesaude.getText());
+					JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso o cliente", "Cadastrado", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("Cadastrado com Sucesso o cliente" + campoNome.getText());
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 			}

@@ -27,6 +27,7 @@ public class BuscarEnfermagemView extends JFrame {
 					System.out.println(resultado.getNome() + "\n" + resultado.getSexo()+ "\n" + resultado.getIdade());
 
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 

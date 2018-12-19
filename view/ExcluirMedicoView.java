@@ -40,9 +40,11 @@ public class ExcluirMedicoView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					fachada.medico.removeMedico(campoCrm.getText());
+					JOptionPane.showMessageDialog(null, "Excluido com Sucesso", "Excluido", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("Excluido com Sucesso");
 
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 

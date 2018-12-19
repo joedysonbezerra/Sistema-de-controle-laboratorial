@@ -42,8 +42,10 @@ public class CadastrarAdministrativoView extends JFrame {
 					fachada.funcionario.cadastrarFuncionarioAdministrativo(campoCpf.getText(),campoNome.getText(),
 					Integer.valueOf(campoIdade.getText()),campoSexo.getText(),
 					campoDepartamento.getText(),Integer.valueOf(campoQtdVendida.getText()));
+					JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso o funcionario", "Cadastrado", JOptionPane.PLAIN_MESSAGE);
 					System.out.println("Cadastrado com Sucesso o funcionario" + campoNome.getText());
 				} catch (Exception error) {
+					JOptionPane.showMessageDialog(null, error.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 					System.out.println(error.getMessage());
 				}
 			}
