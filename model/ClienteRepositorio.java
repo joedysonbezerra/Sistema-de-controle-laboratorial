@@ -17,7 +17,6 @@ public class ClienteRepositorio implements ClienteInterface {
         try {
             if(verificaCliente(pCliente)) throw new NullPointerException("BD: Cliente Invalido");
             this.listaDeClientes.add(pCliente);
-            throw new NullPointerException("BD: Cliente Invalido");
         }catch (Exception e){
             throw new InsertException("BD: Cliente não foi cadastrado");
         }
@@ -29,7 +28,7 @@ public class ClienteRepositorio implements ClienteInterface {
             int i = listaDeClientes.indexOf(pCliente);
 
             if(i >= 0) {
-                return (Cliente) listaDeClientes.get(i);
+                return listaDeClientes.get(i);
             }else {
                 throw new SearchException("BD: Cliente não foi encontrado");
             }

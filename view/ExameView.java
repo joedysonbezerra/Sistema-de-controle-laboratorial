@@ -41,11 +41,9 @@ public class ExameView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = 0;
 				ArrayList<Exame> exames = fachada.exame.ListarTodos();
-				while(!exames.isEmpty()){
+				for(int i = 0; i < exames.size(); i++){
 					System.out.println(exames.get(i).getNome());
-					i++;
 			  }
 			}
 		});

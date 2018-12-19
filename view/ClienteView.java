@@ -42,11 +42,9 @@ public class ClienteView extends JFrame {
 
 		listar.addActionListener( new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int i = 0;
 				ArrayList<Cliente> clientes = fachada.cliente.ListarTodos();
-				while(!clientes.isEmpty()){
+				for(int i = 0; i < clientes.size(); i++){
 					System.out.println(clientes.get(i).getNome());
-					i++;
 			  }
 			}
 		});
