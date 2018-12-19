@@ -1,53 +1,91 @@
 package controller;
+import base.Administrativo;
+import base.Enfermagem;
 import model.FuncionarioInterface;
 import model.FuncionarioRepositorio;
-import base.Departamento;
-import base.Funcionario;
-import base.Pessoa;
 import util.exception.InsertException;
-import util.exception.NullObjectException;
 import util.exception.RemoveException;
 import util.exception.SearchException;
 
 public class FuncionarioController {
 	FuncionarioInterface listaFuncionarios = new FuncionarioRepositorio();
 
-	public void cadastrarFuncionario(String cpf, String nome, int idade, String sexo, Departamento departamento) throws InsertException, NullObjectException{
+	public void cadastrarFuncionarioAdministrativo(String cpf, String nome, int idade, String sexo, String nomeDepartamento, int qtdVendida) throws InsertException, NullPointerException{
 		try {
-			Funcionario novoFuncionario = new Funcionario(cpf, nome, idade, sexo, departamento);
+			Administrativo novoFuncionario = new Administrativo(cpf, nome, idade, sexo, nomeDepartamento,qtdVendida);
 
-			listaFuncionarios.inserirFuncionario(novoFuncionario);
+			listaFuncionarios.inserirFuncionarioAdministrativo(novoFuncionario);
 
 		}catch (InsertException e) {
-			throw new InsertException("O funcionario n�o foi cadastrado com sucesso");
-		}catch (NullObjectException e) {
-			throw new NullObjectException("Por Favor, cadastre um funcionario v�lido");
+			throw new InsertException("O funcionario não foi cadastrado com sucesso");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por Favor, cadastre um funcionario válido");
 		}
 
 	}
 
-	public Funcionario procuraFuncionario(String cpf) throws SearchException, NullObjectException{
+
+
+	public Administrativo procuraFuncionarioAdministrativo(String cpf) throws SearchException, NullPointerException{
 		try {
 
-			Pessoa funcionario = new Funcionario(cpf);
-			funcionario = listaFuncionarios.buscaFuncionario(funcionario);
-			return (Funcionario) funcionario;
+			Administrativo funcionario = new Administrativo(cpf);
+			funcionario = listaFuncionarios.buscaFuncionarioAdministrativo(funcionario);
+			return funcionario;
 		}catch (SearchException e) {
-			throw new SearchException("O funcionario n�o foi encontrado");
-		}catch (NullObjectException e) {
-			throw new NullObjectException("Por favor, informe todos os dados");
+			throw new SearchException("O funcionario não foi encontrado");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por favor, informe todos os dados");
 		}
 	}
 
-	public void removeFuncionario(String cpf) throws SearchException, NullObjectException{
+	public void removeFuncionarioAdministrativo(String cpf) throws SearchException, NullPointerException{
 		try {
 
-			Pessoa funcionario = new Funcionario(cpf);
-			listaFuncionarios.excluiFuncionario(funcionario);
+			Administrativo funcionario = new Administrativo(cpf);
+			listaFuncionarios.excluiFuncionarioAdministrativo(funcionario);
 		}catch (SearchException e) {
-			throw new RemoveException("N�o conseguimos remover o cliente");
-		}catch (NullObjectException e) {
-			throw new NullObjectException("Por favor, informe todos os dados.");
+			throw new RemoveException("Não conseguimos remover o cliente");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por favor, informe todos os dados.");
+		}
+	}
+
+	public void cadastrarFuncionarioEnfermagem(String cpf, String nome, int idade, String sexo, String nomeDepartamento,int examesColetados) throws InsertException, NullPointerException{
+		try {
+			Enfermagem novoFuncionario = new Enfermagem(cpf, nome, idade, sexo, nomeDepartamento,examesColetados);
+
+			listaFuncionarios.inserirFuncionarioEnfermagem(novoFuncionario);
+
+		}catch (InsertException e) {
+			throw new InsertException("O funcionario não foi cadastrado com sucesso");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por Favor, cadastre um funcionario válido");
+		}
+
+	}
+	public Enfermagem procuraFuncionarioEnfermagem(String cpf) throws SearchException, NullPointerException{
+		try {
+
+			Enfermagem funcionario = new Enfermagem(cpf);
+			funcionario = listaFuncionarios.buscaFuncionarioEnfermagem(funcionario);
+			return funcionario;
+		}catch (SearchException e) {
+			throw new SearchException("O funcionario não foi encontrado");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por favor, informe todos os dados");
+		}
+	}
+
+	public void removeFuncionarioEnfermagem(String cpf) throws SearchException, NullPointerException{
+		try {
+
+			Enfermagem funcionario = new Enfermagem(cpf);
+			listaFuncionarios.excluiFuncionarioEnfermagem(funcionario);
+		}catch (SearchException e) {
+			throw new RemoveException("Não conseguimos remover o cliente");
+		}catch (NullPointerException e) {
+			throw new NullPointerException("Por favor, informe todos os dados.");
 		}
 	}
 }

@@ -2,7 +2,6 @@ package model;
 
 import base.Exame;
 import util.exception.InsertException;
-import util.exception.NullObjectException;
 import util.exception.RemoveException;
 import util.exception.SearchException;
 
@@ -13,9 +12,9 @@ public class ExameRepositorio implements ExameInterface {
     ArrayList<Exame> listaDeExames = new ArrayList<Exame>();
 
     @Override
-    public void inserirExame(Exame pExame) throws InsertException, NullObjectException {
+    public void inserirExame(Exame pExame) throws InsertException, NullPointerException {
         try {
-            if(verificaExame(pExame)) throw new NullObjectException("BD: Exame Invalido");
+            if(verificaExame(pExame)) throw new NullPointerException("BD: Exame Invalido");
             this.listaDeExames.add(pExame);
         }catch (Exception e){
             throw new InsertException("BD: Exame não foi cadastrado");
@@ -23,8 +22,8 @@ public class ExameRepositorio implements ExameInterface {
     }
 
     @Override
-    public Exame buscaExame(Exame pExame) throws SearchException, NullObjectException {
-        if(verificaExame(pExame)) throw new NullObjectException("BD: Exame Invalido");
+    public Exame buscaExame(Exame pExame) throws SearchException, NullPointerException {
+        if(verificaExame(pExame)) throw new NullPointerException("BD: Exame Invalido");
 
         int i = listaDeExames.indexOf(pExame);
 
@@ -36,9 +35,9 @@ public class ExameRepositorio implements ExameInterface {
     }
 
     @Override
-    public void excluiExame(Exame pExame) throws RemoveException, NullObjectException {
+    public void excluiExame(Exame pExame) throws RemoveException, NullPointerException {
             try {
-                if(verificaExame(pExame)) throw new NullObjectException("BD: Exame Invalido");
+                if(verificaExame(pExame)) throw new NullPointerException("BD: Exame Invalido");
                 this.listaDeExames.remove(pExame);
             }catch (Exception e){
                 throw new RemoveException("BD: Exame não foi removido");
@@ -47,7 +46,7 @@ public class ExameRepositorio implements ExameInterface {
 
     @Override
     public ArrayList<Exame> listarExame() {
-        return null;
+        return listaDeExames;
     }
 
     @Override

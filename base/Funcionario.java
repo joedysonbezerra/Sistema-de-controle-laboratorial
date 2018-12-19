@@ -1,13 +1,13 @@
 package base;
 
-public class Funcionario extends Pessoa {
+public abstract class Funcionario extends Pessoa {
     Departamento departamento;
 
-    public Funcionario(String cpf, String nome, int idade, String sexo, Departamento departamento) {
+    public Funcionario(String cpf, String nome, int idade, String sexo, String nomeDepartamento) {
         super(cpf, nome, idade, sexo);
-        this.departamento = departamento;
+        this.departamento = new Departamento(nomeDepartamento);
     }
-    
+
     public Funcionario(String cpf) {
 		super(cpf);
 	}

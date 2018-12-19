@@ -1,72 +1,100 @@
 package model;
 import base.Funcionario;
-import base.Pessoa;
+import base.Administrativo;
+import base.Enfermagem;
 import util.exception.InsertException;
-import util.exception.NullObjectException;
 import util.exception.RemoveException;
 import util.exception.SearchException;
 
 import java.util.ArrayList;
 
 public class FuncionarioRepositorio implements FuncionarioInterface {
-	
-	ArrayList<Pessoa> listaDeFuncionarios = new ArrayList<Pessoa>();
+
+	ArrayList<Administrativo> listaDeFuncionariosAdministrativo = new ArrayList<Administrativo>();
+	ArrayList<Enfermagem> listaDeFuncionariosEnfermagem = new ArrayList<Enfermagem>();
 
 	@Override
-	public void inserirFuncionario(Pessoa pFuncionario) throws InsertException, NullObjectException {
+	public void inserirFuncionarioAdministrativo(Administrativo pFuncionario) throws InsertException, NullPointerException {
 		try {
-			if(pFuncionario instanceof Funcionario) {
-				if(verificarFuncionario(pFuncionario)) throw new NullObjectException("Funcionario Inv?lido");
-				this.listaDeFuncionarios.add(pFuncionario);
-			}else {
-				throw new NullObjectException("Funcionario Inv?lido");
-			}
+				if(verificarFuncionario(pFuncionario)) throw new NullPointerException("Funcionario Invalido");
+				this.listaDeFuncionariosAdministrativo.add(pFuncionario);
+
 		}catch (Exception e) {
-			throw new InsertException("Funcionario n?o foi cadastrado");
+			throw new InsertException("Funcionario não foi cadastrado");
 		}
 	}
 
 	@Override
-	public Funcionario buscaFuncionario(Pessoa pFuncionario) throws SearchException, NullObjectException {
-		if(pFuncionario instanceof Funcionario) {
-			if(verificarFuncionario(pFuncionario)) throw new NullObjectException("Funcionario Inv?lido");
-			int i = listaDeFuncionarios.indexOf(pFuncionario);
-			
+	public Administrativo buscaFuncionarioAdministrativo(Administrativo pFuncionario) throws SearchException, NullPointerException {
+			if(verificarFuncionario(pFuncionario)) throw new NullPointerException("Funcionario Invalido");
+			int i = listaDeFuncionariosAdministrativo.indexOf(pFuncionario);
+
 			if(i >= 0) {
-				return (Funcionario) listaDeFuncionarios.get(i);
+				return listaDeFuncionariosAdministrativo.get(i);
 			}else {
-				throw new SearchException("Funcionario n?o foi encontrado");
+				throw new SearchException("Funcionario não foi encontrado");
 			}
-		}else {
-			throw new NullObjectException("Funcionario Inv?lido");
+	}
+
+	@Override
+	public void excluiFuncionarioAdministrativo(Administrativo pFuncionario) throws RemoveException, NullPointerException {
+			try {
+				if(verificarFuncionario(pFuncionario)) throw new NullPointerException ("Funcionario Invalido");
+				this.listaDeFuncionariosAdministrativo.remove(pFuncionario);
+			}catch (Exception e) {
+				throw new RemoveException("Funcionario não foi removido");
+			}
+	}
+
+	@Override
+	public ArrayList<Administrativo> listarFuncionariosAdministrativo() {
+		return listaDeFuncionariosAdministrativo;
+	}
+
+	public void inserirFuncionarioEnfermagem(Enfermagem pFuncionario) throws InsertException, NullPointerException {
+		try {
+				if(verificarFuncionario(pFuncionario)) throw new NullPointerException("Funcionario Invalido");
+				this.listaDeFuncionariosEnfermagem.add(pFuncionario);
+
+		}catch (Exception e) {
+			throw new InsertException("Funcionario não foi cadastrado");
 		}
 	}
 
 	@Override
-	public void excluiFuncionario(Pessoa pFuncionario) throws RemoveException, NullObjectException {
-		if(pFuncionario instanceof Funcionario) {
-			try {
-				if(verificarFuncionario(pFuncionario)) throw new NullObjectException ("Funcionario Inv?lido");
-				this.listaDeFuncionarios.remove(pFuncionario);
-			}catch (Exception e) {
-				throw new RemoveException("Funcionario n?o foi removido");
+	public Enfermagem buscaFuncionarioEnfermagem(Enfermagem pFuncionario) throws SearchException, NullPointerException {
+			if(verificarFuncionario(pFuncionario)) throw new NullPointerException("Funcionario Invalido");
+			int i = listaDeFuncionariosEnfermagem.indexOf(pFuncionario);
+
+			if(i >= 0) {
+				return listaDeFuncionariosEnfermagem.get(i);
+			}else {
+				throw new SearchException("Funcionario não foi encontrado");
 			}
-		}else {
-			throw new NullObjectException("Funcionario Inv?lido");
-		}
 	}
-	
+
 	@Override
-	public ArrayList<Pessoa> listarFuncionarios() {
-		return null;
+	public void excluiFuncionarioEnfermagem(Enfermagem pFuncionario) throws RemoveException, NullPointerException {
+			try {
+				if(verificarFuncionario(pFuncionario)) throw new NullPointerException ("Funcionario Invalido");
+				this.listaDeFuncionariosEnfermagem.remove(pFuncionario);
+			}catch (Exception e) {
+				throw new RemoveException("Funcionario não foi removido");
+			}
 	}
-	
+
 	@Override
-	public boolean verificarFuncionario(Pessoa pFuncionario) {
+	public ArrayList<Enfermagem> listarFuncionariosEnfermagem() {
+		return listaDeFuncionariosEnfermagem;
+	}
+
+
+	@Override
+	public boolean verificarFuncionario(Funcionario pFuncionario) {
 		if(pFuncionario == null) {
 			return true;
 		}
 		return false;
 	}
-	
+
 }

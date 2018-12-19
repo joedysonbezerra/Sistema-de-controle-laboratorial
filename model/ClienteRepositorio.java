@@ -1,37 +1,31 @@
 package model;
 
-import base.Pessoa;
 import base.Cliente;
 import util.exception.InsertException;
 import util.exception.SearchException;
 import util.exception.RemoveException;
-import util.exception.NullObjectException;
 
 
 import java.util.ArrayList;
 
 public class ClienteRepositorio implements ClienteInterface {
 
-    ArrayList<Pessoa> listaDeClientes = new ArrayList<Pessoa>();
+    ArrayList<Cliente> listaDeClientes = new ArrayList<Cliente>();
 
     @Override
-    public void inserirCliente(Pessoa pCliente) throws InsertException,NullObjectException {
+    public void inserirCliente(Cliente pCliente) throws InsertException,NullPointerException {
         try {
-            if(pCliente instanceof Cliente) {
-                if(verificaCliente(pCliente)) throw new NullObjectException("BD: Cliente Invalido");
-                this.listaDeClientes.add(pCliente);
-            }else {
-                throw new NullObjectException("BD: Cliente Invalido");
-            }
+            if(verificaCliente(pCliente)) throw new NullPointerException("BD: Cliente Invalido");
+            this.listaDeClientes.add(pCliente);
+            throw new NullPointerException("BD: Cliente Invalido");
         }catch (Exception e){
             throw new InsertException("BD: Cliente não foi cadastrado");
         }
     }
 
     @Override
-    public Cliente buscaCliente(Pessoa pCliente) throws SearchException,NullObjectException {
-        if(pCliente instanceof Cliente) {
-            if(verificaCliente(pCliente)) throw new NullObjectException("BD: Cliente Invalido");
+    public Cliente buscaCliente(Cliente pCliente) throws SearchException,NullPointerException {
+            if(verificaCliente(pCliente)) throw new NullPointerException("BD: Cliente Invalido");
             int i = listaDeClientes.indexOf(pCliente);
 
             if(i >= 0) {
@@ -39,32 +33,25 @@ public class ClienteRepositorio implements ClienteInterface {
             }else {
                 throw new SearchException("BD: Cliente não foi encontrado");
             }
-        }else {
-            throw new NullObjectException("BD: Cliente Invalido");
-        }
     }
 
     @Override
-    public void excluiCliente(Pessoa pCliente) throws RemoveException,NullObjectException {
-        if(pCliente instanceof Cliente) {
+    public void excluiCliente(Cliente pCliente) throws RemoveException,NullPointerException {
             try {
-                if(verificaCliente(pCliente)) throw new NullObjectException("BD: Cliente Invalido");
+                if(verificaCliente(pCliente)) throw new NullPointerException("BD: Cliente Invalido");
                 this.listaDeClientes.remove(pCliente);
             }catch (Exception e){
                 throw new RemoveException("BD: Cliente não foi removido");
             }
-        }else {
-            throw new NullObjectException("BD: Cliente Invalido");
-        }
     }
 
     @Override
-    public ArrayList<Pessoa> listarClientes() {
-        return null;
+    public ArrayList<Cliente> listarClientes() {
+        return listaDeClientes;
     }
 
     @Override
-    public boolean verificaCliente(Pessoa pCliente) {
+    public boolean verificaCliente(Cliente pCliente) {
         if(pCliente == null){
             return true;
         }

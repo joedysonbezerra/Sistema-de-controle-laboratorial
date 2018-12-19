@@ -1,10 +1,14 @@
 package base;
 
 public class Administrativo extends Funcionario {
-    private int qtdVendida;
+	private int qtdVendida;
 
-    public Administrativo(String cpf, String nome, int idade, String sexo, Departamento departamento, int qtdVendida) {
-        super(cpf, nome, idade, sexo, departamento);
+	public Administrativo(String cpf) {
+		super(cpf);
+  	}
+
+    public Administrativo(String cpf, String nome, int idade, String sexo, String nomeDepartamento, int qtdVendida) {
+        super(cpf, nome, idade, sexo, nomeDepartamento);
         this.qtdVendida = qtdVendida;
     }
 

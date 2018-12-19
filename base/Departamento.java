@@ -3,8 +3,15 @@ package base;
 public class Departamento {
    private int cod;
    private String nome;
+	private static int sequence = 0;
 
-    public int getCod() {
+	public Departamento(String nome) {
+		this.cod = sequence;
+		this.nome = nome;
+		sequence++;
+	}
+
+	public int getCod() {
         return cod;
     }
 

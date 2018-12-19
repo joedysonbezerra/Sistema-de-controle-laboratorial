@@ -1,10 +1,14 @@
 package base;
 
 public class Enfermagem extends Funcionario {
-    private int examesColetados;
+	 private int examesColetados;
 
-    public Enfermagem(String cpf, String nome, int idade, String sexo, Departamento departamento, int examesColetados) {
-        super(cpf, nome, idade, sexo, departamento);
+	public Enfermagem(String cpf) {
+		super(cpf);
+  	}
+
+    public Enfermagem(String cpf, String nome, int idade, String sexo,String nomeDepartamento, int examesColetados) {
+        super(cpf, nome, idade, sexo, nomeDepartamento);
         this.examesColetados = examesColetados;
     }
 

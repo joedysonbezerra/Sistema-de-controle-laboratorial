@@ -2,7 +2,6 @@ package model;
 
 import base.Medico;
 import util.exception.InsertException;
-import util.exception.NullObjectException;
 import util.exception.RemoveException;
 import util.exception.SearchException;
 
@@ -11,9 +10,9 @@ import java.util.ArrayList;
 public class MedicoRepositorio implements MedicoInterface {
     ArrayList<Medico> listaDeMedicos = new ArrayList<Medico>();
     @Override
-    public void insereMedico(Medico pMedico) throws InsertException, NullObjectException {
+    public void insereMedico(Medico pMedico) throws InsertException, NullPointerException {
         try {
-            if(verificaMedico(pMedico)) throw new NullObjectException("BD: Medico Invalido");
+            if(verificaMedico(pMedico)) throw new NullPointerException("BD: Medico Invalido");
             this.listaDeMedicos.add(pMedico);
         }catch (Exception e){
             throw new InsertException("BD: Medico não foi cadastrado");
@@ -21,8 +20,8 @@ public class MedicoRepositorio implements MedicoInterface {
     }
 
     @Override
-    public Medico buscaMedico(Medico pMedico) throws SearchException, NullObjectException {
-        if(verificaMedico(pMedico)) throw new NullObjectException("BD: Medico Invalido");
+    public Medico buscaMedico(Medico pMedico) throws SearchException, NullPointerException {
+        if(verificaMedico(pMedico)) throw new NullPointerException("BD: Medico Invalido");
 
         int i = listaDeMedicos.indexOf(pMedico);
 
@@ -35,13 +34,13 @@ public class MedicoRepositorio implements MedicoInterface {
 
     @Override
     public ArrayList<Medico> listarMedico() {
-        return null;
+        return listaDeMedicos;
     }
 
     @Override
-    public void excluiMedico(Medico pMedico) throws RemoveException, NullObjectException {
+    public void excluiMedico(Medico pMedico) throws RemoveException, NullPointerException {
         try {
-            if(verificaMedico(pMedico)) throw new NullObjectException("BD: Exame Invalido");
+            if(verificaMedico(pMedico)) throw new NullPointerException("BD: Exame Invalido");
             this.listaDeMedicos.remove(pMedico);
         }catch (Exception e){
             throw new RemoveException("BD: Exame não foi removido");
